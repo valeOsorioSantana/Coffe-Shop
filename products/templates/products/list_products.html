@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <h1 class="text-3xl font-bold underline">Lista de Productos</h1>
-  <ul>
+  <h1 class="text-3xl font-bold text-center mb-10"> Lista de Productos </h1>
+  <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
     {% for product in products %}
-      <a href="#" class="group relative block overflow-hidden">
+      <a href="#" class="group relative block overflow-hidden rounded-lg shadow-sm">
         <button class="absolute end-4 top-4 z-10 rounded-full bg-white p-1.5 text-gray-900 transition hover:text-gray-900/75">
           <span class="sr-only">Wishlist</span>
 
@@ -25,6 +25,7 @@
           <h3 class="mt-4 text-lg font-medium text-gray-900">{{ product.name }}</h3>
 
           <p class="mt-1.5 text-sm text-gray-700">${{ product.price }}</p>
+          <p class="mt-1.5 text-sm text-gray-700">{{ product.date_created|date:"M d, Y" }}</p>
             {% comment "" %}
             <form class="mt-4">
             <button class="block w-full rounded-sm bg-yellow-400 p-4 text-sm font-medium transition hover:scale-105">Add to Cart</button>
@@ -35,5 +36,5 @@
       </a>
 
     {% endfor %}
-  </ul>
+  </div>
 {% endblock %}
